@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // animate the text, make it marquee type so that the text will scroll
+    const marqueeText = document.getElementById('marquee-text');
+    marqueeText.style.animation = 'marquee 10s linear infinite';
+    marqueeText.style.whiteSpace = 'nowrap';
+    marqueeText.style.overflow = 'hidden';
+    marqueeText.style.display = 'inline-block'; // this is to make the text scroll in a single line without breaking the line       
+
     // Animate sections on scroll
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {

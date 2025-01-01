@@ -5,51 +5,421 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanmay Saxena's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Previous CSS styles remain the same until the projects section */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #e0e0e0;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --header-background: #000000;
+            --hover-color: #4aa3df;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--header-background) 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        /* Updated Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(52, 152, 219, 0.2);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            margin-top: 2rem;
+        }
+
+        .education-card {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--header-background);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 class="white-text">Welcome to My Portfolio</h1>
-        <p>This website showcases my projects and skills as a software developer.</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <h1 class="header-title">Tanmay Saxena</h1>
+            <p>Software Developer & Graduate Student at University of Florida</p>
+        </div>
     </header>
 
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
     <main>
-        <section id="about" class="card">
-            <h2>About Me</h2>
-            <p>Experienced software developer with a focus on frontend and backend development, currently enhancing skills at the University of Florida.</p>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p>Experienced software developer with a focus on frontend and backend development, currently enhancing skills at the University of Florida. Passionate about creating efficient and user-friendly applications.</p>
         </section>
 
-        <section id="education" class="card">
-            <h2>Education</h2>
-            <ul>
-                <li>Master of Science in Computer Science, University of Florida</li>
-                <li>BTech in Electronics and Communication Engineering, SRM Institute of Science and Technology</li>
-            </ul>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                <div class="education-card">
+                    <h3>University of Florida</h3>
+                    <p>Master of Science in Computer Science</p>
+                    <p><i class="fas fa-calendar"></i> 2023 - Present</p>
+                </div>
+                <div class="education-card">
+                    <h3>SRM Institute of Science and Technology</h3>
+                    <p>BTech in Electronics and Communication Engineering</p>
+                    <p><i class="fas fa-calendar"></i> Completed</p>
+                </div>
+            </div>
         </section>
 
-        <section id="skills" class="card">
-            <h2>Skills</h2>
-            <p>Proficient in Python, C/C++, R, SQL, HTML, CSS, and various development tools.</p>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>C/C++</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>SQL</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3>HTML/CSS</h3>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
-            <div id="projects-list">Loading projects...</div>
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- Example Project Card - Replace with your actual projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/250" alt="Project 1" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Name</h3>
+                        <p class="project-description">
+                            A detailed description of your project. Explain what it does, the problem it solves, and any key features.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">React</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add more project cards here -->
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Contact me on <a href="https://www.linkedin.com/in/tanmay--saxena/">LinkedIn</a></p>
+        <p>Let's connect and create something amazing together!</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tanmay--saxena/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Jawsenigma" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
