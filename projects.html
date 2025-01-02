@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Tanmay Saxena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #e0e0e0;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --header-background: #000000;
+            --hover-color: #4aa3df;
+            --button-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            background-image: url('bg-image.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.9;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--text-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+        }
+
+        .section-container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            margin-top: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .project-card {
+            background: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .about-actions {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .about-actions a {
+            text-decoration: none;
+            color: var(--button-color);
+            background-color: var(--primary-color);
+            opacity: 0.8;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            margin: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .about-actions a:hover {
+            background-color: var(--hover-color);
+            opacity: 1;
+            color: var(--background-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tanmay Saxena</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="work_exp.html">Work Experience</a></li> <!-- Added Work Experience link -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="section-container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <h3>Essay Evaluator</h3>
+                <p><strong>Developed a Django web application for evaluating essays using the OpenAI API:</strong></p>
+                <ul>
+                    <li>Allowed users to submit essays with a title and body text of up to 500 words. Integrated OpenAI API to provide feedback on essays, including spelling errors, content relevance, and scoring.</li>
+                    <li>Implemented Google SSO for user authentication.</li>
+                    <li>Enabled prompt editing through the admin panel. Displayed a history of submitted essays with feedback and submission dates.</li>
+                    <li>Designed a basic, user-friendly interface for submitting essays and viewing history.</li>
+                </ul>
+                <p><strong>GitHub Link:</strong> <a href="https://github.com/Jawsenigma/Backend_Django_Essay_Evaluator" target="_blank">Backend_Django_Essay_Evaluator</a></p>
+            </div>
+            <div class="project-card">
+                <h3>RISC-V Simulator</h3>
+                <p><strong>Developed a Python-based RISC-V simulator:</strong></p>
+                <ul>
+                    <li>Incorporated parsing, execution, and disassembly functionalities, facilitating the loading, interpretation, and simulation of RISC-V assembly programs.</li>
+                    <li>Yielded comprehensive disassembly and simulation outputs for in-depth analysis.</li>
+                </ul>
+                <p><strong>GitHub Link:</strong> <a href="https://github.com/Jawsenigma/RISC-V_Simulator" target="_blank">RISC-V_Simulator</a></p>
+            </div>
+            <div class="project-card">
+                <h3>Advanced Library Management System Architecture</h3>
+                <p><strong>Implemented library management system with Red-Black Tree and Binary Min Heaps:</strong></p>
+                <ul>
+                    <li>Used Red-Black Tree for book management and Binary Min Heaps for reservations, supporting various operations.</li>
+                    <li>Program structured with classes like RedBlackNode, RBTree, MinHeap, GatorLibrary, Book, and Patron, each with methods for seamless execution of operations.</li>
+                    <li>Provided a user-friendly interface for effective management of the library system.</li>
+                </ul>
+                <p><strong>GitHub Link:</strong> <a href="https://github.com/Jawsenigma/Gator-Library-System" target="_blank">Gator-Library-System</a></p>
+            </div>
+            <div class="project-card">
+                <h3>Design Challenge - VR Platform for Neurodivergent Individuals</h3>
+                <p><strong>Developed a VR platform to help neurodivergent individuals practice social skills:</strong></p>
+                <ul>
+                    <li>Created interactive, immersive VR simulations that allow neurodiverse users to practice real-world interactions in a safe, controlled environment.</li>
+                    <li>Enabled therapists to assign, monitor, and adapt modules to cater to individual needs.</li>
+                    <li>Provided customizable, sensory-friendly experiences and role-specific dashboards for users and therapists.</li>
+                    <li>Tracked user progress and generated actionable insights to facilitate emotional regulation, conversation skills, and professional interactions.</li>
+                </ul>
+                <p><strong>Context:</strong> The solution aims to enhance emotional regulation, conversation skills, and professional interactions for neurodiverse users, fostering inclusivity and confidence in real-world social situations.</p>
+                <p><strong>Figma Design Link:</strong> <a href="https://www.figma.com/proto/6oZ4TNePxj4rDRkWfw29F4/Augmented-Info-Systems?node-id=0-1&t=QDbqAAF4ZGWy0cDM-1" target="_blank">View Figma Prototype</a></p>
+            </div>
+            <div class="project-card">
+                <h3>Snake & Apple Game</h3>
+                <p><strong>Welcome to the Snake & Apple Game! This is a simple Snake game implemented in Python using the Pygame library.</strong></p>
+                <ul>
+                    <li>Snake length increases when an apple is consumed.</li>
+                    <li>Background music during gameplay.</li>
+                    <li>Sound effects for eating apples and collisions.</li>
+                </ul>
+                <p><strong>GitHub Link:</strong> <a href="https://github.com/Jawsenigma/Snake-Game" target="_blank">Snake-Game</a></p>
+            </div>
+            <div class="about-actions">
+                <a href="mailto:tanmaysaxena58@gmail.com">Email Me</a>
+                <a href="tel:+13527214719">Call Me</a>
+                <a href="https://linkedin.com/in/tanmay--saxena" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Jawsenigma" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
